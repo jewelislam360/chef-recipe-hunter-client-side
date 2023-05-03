@@ -1,19 +1,25 @@
 import React from 'react';
-import {  FaGithub, FaGoogle } from "react-icons/fa";
 import { Form, Link } from 'react-router-dom';
+import {  FaGithub, FaGoogle } from "react-icons/fa";
 
-const Login = () => {
+const Register = () => {
     return (
         <div>
             <div className="hero min-h-screen bg-base-700">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Plase Login now!</h1>
+                        <h1 className="text-5xl font-bold">Please Sign up now!</h1>
                         
                     </div>
                     <Form>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
+                        <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" name="name" placeholder="Enter your name" className="input input-bordered" required />
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -26,11 +32,11 @@ const Login = () => {
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" />
                                 <label className="label">
-                                    Are you new this site?<Link to="/register">Register</Link>
+                                    You have an account?<Link to="/login">Login</Link>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Sign Up</button>
                             </div>
                         </div>
                         <div className='flex mx-auto  text-xl color'>
@@ -43,7 +49,9 @@ const Login = () => {
                 </div>
             </div>
         </div>
+            
+        
     );
 };
 
-export default Login;
+export default Register;
