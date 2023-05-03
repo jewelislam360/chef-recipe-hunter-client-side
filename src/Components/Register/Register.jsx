@@ -6,8 +6,8 @@ const Register = () => {
     return (
         <div>
             <div className="hero min-h-screen bg-base-700">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
+                <div className="hero-content flex-col ">
+                    <div className="text-center">
                         <h1 className="text-5xl font-bold">Please Sign up now!</h1>
                         
                     </div>
@@ -39,7 +39,7 @@ const Register = () => {
                                 <button className="btn btn-primary">Sign Up</button>
                             </div>
                         </div>
-                        <div className='flex mx-auto  text-xl color'>
+                        <div className='flex mx-auto  text-4xl gap-10 mb-5'>
                             <FaGoogle></FaGoogle> <FaGithub></FaGithub>
                         </div>
                         
