@@ -14,6 +14,8 @@ import Navigation from './layout/Navigation.jsx';
 import Register from './Components/Register/register.jsx';
 import Registerlayout from './layout/Registerlayout.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
+import RecipesDetails from './Components/RecipesDetails/RecipesDetails.jsx';
+import PrivetRout from './Raout/PrivetRout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
       {
         path:"/blog",
         element:<Blog></Blog>
+      },
+      {
+        path:"/viewdetails",
+        element:<PrivetRout><RecipesDetails></RecipesDetails></PrivetRout>
       },
       
       
