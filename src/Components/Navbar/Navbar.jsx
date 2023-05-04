@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
+    const { user,logOut } = useContext(AuthContext);
+    const handelLogout = ()=>{
+        logOut()
+        .then(()=>{
+
+        })
+        .catch(()=>{
+            console.log(error)
+        })
+    }
     return (
         <div className=" bg-base-200">
             <div className=" navbar w-[75%] mx-auto">
@@ -12,18 +23,30 @@ const Navbar = () => {
                     <div className="menu menu-horizontal px-1">
                         <Link className='mr-8' to={'/'}>Home</Link>
                         <Link className='mr-8' to={'/blog'}>Blog</Link>
-                        <Link className='mr-8' to={'/login'}>Login</Link>
+
                         <Link className='mr-8' to={'/register'}>Sign Up</Link>
-                        
-                        
+
+
                     </div>
                     <div >
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        {
+                            user ? <div className='flex'>
+
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    </div>
+
+                                </label>
+                                <div>
+                                    <Link className='mr-8' onClick={handelLogout}>Logout</Link>
+                                </div>
                             </div>
-                        </label>
-                        
+                                :
+                                <Link className='mr-8' to={'/login'}>Login</Link>
+                        }
+
+
                     </div>
                 </div>
             </div>
