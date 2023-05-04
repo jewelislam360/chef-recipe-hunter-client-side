@@ -5,7 +5,7 @@ const Header = () => {
 
         
         <div className='h-[20%]'>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage160059050-50-LC-CAROUSEL-1.png")` }}>
+            <div className="hero min-h-screen bg-slate-700 bg-blend-overlay" style={{ backgroundImage: `url("https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage160059050-50-LC-CAROUSEL-1.png")` }}>
                 <div className="hero-overlay bg-opacity-30"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">

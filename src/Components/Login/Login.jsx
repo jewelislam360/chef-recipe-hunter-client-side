@@ -2,9 +2,18 @@ import React, { useContext } from 'react';
 import {  FaGithub, FaGoogle } from "react-icons/fa";
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.init';
+
+
+
+
+
 
 const Login = () => {
- const {user, signIn} = useContext(AuthContext)
+    const auth = getAuth(app)
+ const {user, signIn, googleSignin} = useContext(AuthContext)
+ const provider = new GoogleAuthProvider();
  
 
     const handelLogin=(event)=>{
@@ -22,6 +31,21 @@ const Login = () => {
 
         })
         .catch(error =>{
+            console.log(error);
+        })
+
+        
+
+    }
+    const hendelGoogleSinIn=()=>{
+        signInWithPopup(auth, provider)
+        .then(result=>{
+            const loggedUser= result.user;
+        console.log(loggedUser);
+
+
+        })
+        .catch(error=>{
             console.log(error);
         })
 
@@ -53,12 +77,14 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-success">Login</button>
                             </div>
-                            <div className='flex mx-auto  text-4xl gap-10 mb-5'>
-                            <FaGoogle></FaGoogle> <FaGithub></FaGithub>
-                            </div>
+                            
                         </form>
+                        <div className='flex mx-auto  text-4xl gap-10 mb-5'>
+                                <button onClick={hendelGoogleSinIn}><FaGoogle ></FaGoogle></button>
+                             <FaGithub></FaGithub>
+                            </div>
                         
                     </div>
                     

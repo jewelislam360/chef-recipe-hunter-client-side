@@ -16,36 +16,46 @@ import Registerlayout from './layout/Registerlayout.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import RecipesDetails from './Components/RecipesDetails/RecipesDetails.jsx';
 import PrivetRout from './Raout/PrivetRout.jsx';
+import RecipeDataLoader from './Components/RecipesDetails/RecipeDataLoader.jsx';
+import Chef from './Components/Chef/Chef.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children:[
+    children: [
       {
-        path:"/",
-        element:<Home></Home>
+        path: "/",
+        element: <Home></Home>
       },
       {
-        path:"/blog",
-        element:<Blog></Blog>
+        path: "/blog",
+        element: <Blog></Blog>
       },
-      {
-        path:"/viewdetails",
-        element:<PrivetRout><RecipesDetails></RecipesDetails></PrivetRout>
-      },
-      
-      
+
+
     ]
   },
   {
     path: "/login",
     element: <Navigation></Navigation>,
-    },
-    {
-      path: "/register",
-      element: <Registerlayout></Registerlayout>,
-      }
+  },
+  {
+    path: "/register",
+    element: <Registerlayout></Registerlayout>,
+  },
+  {
+    path: "/viewdetails",
+    element: <RecipesDetails></RecipesDetails>,
+  },
+
+  {
+    path: "/viewdetails/:id",
+    element: <RecipeDataLoader></RecipeDataLoader>,
+    loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`)
+
+  }
+
 
 ]);
 

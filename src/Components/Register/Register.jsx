@@ -66,7 +66,7 @@ const Register = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Sign Up</button>
+                                    <button className="btn btn-success">Sign Up</button>
                                 </div>
                             </Form>
                             <div className='flex mx-auto  text-4xl gap-10 mb-5'>
