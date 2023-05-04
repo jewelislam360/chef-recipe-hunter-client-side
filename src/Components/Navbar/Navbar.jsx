@@ -24,7 +24,7 @@ const Navbar = () => {
                     <div className="menu menu-horizontal px-1">
                         <Link className='mr-8' to={'/'}>Home</Link>
                         <Link className='mr-8' to={'/blog'}>Blog</Link>
-                        <Link className='mr-8' to={'/viewdetails'}>Details</Link>
+                       
 
                         <Link className='mr-8' to={'/register'}>Sign Up</Link>
 

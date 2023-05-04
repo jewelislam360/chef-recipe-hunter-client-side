@@ -11,13 +11,16 @@ const OurChef = () => {
             .catch(error => console.log(error))
     }, [])
     return (
-        <div>
+        
+            <div><h1 className='text-4xl w-[75%] mb-10 mt-10 text-center mx-auto font-bold' >Chef Details</h1>
+            <div className='grid grid-cols-3 gap-5 w-[75%] mx-auto	'>
+
             {
                 chef.map(chef => <div
                     key={chef.id}
 
                 >
-                    <div className='flex gap-5'>
+                    <div className=''>
                         <div className="card w-96 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
                                 <img src={chef.img} alt="Shoes" className="rounded-xl" />
@@ -45,6 +48,7 @@ const OurChef = () => {
             }
 
 
+        </div>
         </div>
     );
 };

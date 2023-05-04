@@ -17,12 +17,14 @@ import AuthProvider from './Providers/AuthProvider.jsx';
 import RecipesDetails from './Components/RecipesDetails/RecipesDetails.jsx';
 import PrivetRout from './Raout/PrivetRout.jsx';
 import RecipeDataLoader from './Components/RecipesDetails/RecipeDataLoader.jsx';
-import Chef from './Components/Chef/Chef.jsx';
+import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -51,7 +53,7 @@ const router = createBrowserRouter([
 
   {
     path: "/viewdetails/:id",
-    element: <RecipeDataLoader></RecipeDataLoader>,
+    element:  <PrivetRout><RecipeDataLoader></RecipeDataLoader></PrivetRout>,
     loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`)
 
   }
