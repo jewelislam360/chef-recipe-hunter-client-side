@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaThumbsUp } from 'react-icons/fa';
 
 
 const OurChef = () => {
@@ -31,7 +32,10 @@ const OurChef = () => {
                                 <div>
                                     <div className='flex justify-between'>
                                         <h4>Number of recipe: {chef.recipes.length}</h4>
-                                        <h4> {chef.likes}</h4>
+                                        <div className='flex gap-2 align-middle'>
+                                            <div><FaThumbsUp /></div>
+                                            <div>{chef.likes}</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="card-actions  text-center">
