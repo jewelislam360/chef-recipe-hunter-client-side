@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import logo from '../../assets/logo.png'
 
@@ -14,6 +14,12 @@ const Navbar = () => {
             console.log(error)
         })
     }
+    const activeLink=({isActive})=>{
+        return{
+            fontWeight: isActive? 'bold' : 'normal',
+            color: isActive? 'green': 'none',
+        }
+    }
     return (
         <div className=" bg-base-200">
             <div className=" navbar w-[75%] mx-auto">
@@ -22,11 +28,9 @@ const Navbar = () => {
                 </div>
                 <div className="flex-none gap-2">
                     <div className="menu menu-horizontal px-1">
-                        <Link className='mr-8' to={'/'}>Home</Link>
-                        <Link className='mr-8' to={'/blog'}>Blog</Link>
-                       
-
-                        <Link className='mr-8' to={'/register'}>Sign Up</Link>
+                        <NavLink style={activeLink} className='mr-8' to={'/'}>Home</NavLink>
+                        <NavLink  style={activeLink} className='mr-8' to={'/blog'}>Blog</NavLink>                 
+                        <NavLink  style={activeLink} className='mr-8' to={'/register'}>Sign Up</NavLink>
 
 
                     </div>
@@ -41,11 +45,11 @@ const Navbar = () => {
 
                                 </label>
                                 <div>
-                                    <Link className='mr-8' onClick={handelLogout}>Logout</Link>
+                                    <NavLink className='mr-8' onClick={handelLogout}>Logout</NavLink>
                                 </div>
                             </div>
                                 :
-                                <Link className='mr-8' to={'/login'}>Login</Link>
+                                <NavLink className='mr-8' to={'/login'}>Login</NavLink>
                         }
 
 
