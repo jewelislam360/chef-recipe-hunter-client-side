@@ -6,7 +6,7 @@ import { FaThumbsUp } from 'react-icons/fa';
 const OurChef = () => {
     const [chef, setChef] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/chef')
+        fetch('https://recipe-project-delta.vercel.app/chef')
             .then(res => res.json())
             .then(data => setChef(data))
             .catch(error => console.log(error))

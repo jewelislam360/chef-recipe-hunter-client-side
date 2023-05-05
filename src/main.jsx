@@ -54,7 +54,7 @@ const router = createBrowserRouter([
   {
     path: "/viewdetails/:id",
     element:  <PrivetRout><RecipeDataLoader></RecipeDataLoader></PrivetRout>,
-    loader: ({ params }) => fetch(`https://b7a10-chef-recipe-hunter-server-side-jewelislam36-jewelislam360.vercel.app/chef/${params.id}`)
+    loader: ({ params }) => fetch(`https://recipe-project-delta.vercel.app/chef/${params.id}`)
 
   }
 

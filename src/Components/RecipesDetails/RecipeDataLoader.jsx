@@ -82,7 +82,9 @@ const RecipeDataLoader = () => {
                                         <div>{recipe.likes}</div>
                                     </div>
                                     <div>
-                                        <button onClick={notify} className="btn btn-accent">favorite</button>
+                                        <button onClick={notify} className="btn btn-accent">favorite
+                                        <Toaster></Toaster>
+                                        </button>
                                     </div>
                                 </div>
 
