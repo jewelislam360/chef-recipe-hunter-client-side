@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {  FaGithub, FaGoogle } from "react-icons/fa";
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -11,28 +11,34 @@ import app from '../../firebase/firebase.init';
 
 
 const Login = () => {
+    const [error, setError]= useState('');
+    const [success, setSuccess]= useState('');
     // const auth = getAuth(app)
- const {user, signIn, googleSignin,auth} = useContext(AuthContext)
+ const {user, setUser, signIn, googleSignin,auth} = useContext(AuthContext)
  const provider = new GoogleAuthProvider();
  const githubProvider = new GithubAuthProvider();
  
 
     const handelLogin=(event)=>{
+        setSuccess('')
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
 
-        signIn(email, password)
-        .then(result=>{
+        signIn(email, password).then(result=>{
             const loggedUser= result.user;
+            setUser(loggedUser)
             console.log(loggedUser);
             form.reset();
+            setError('');
+            setSuccess('successfully User Login')
 
-        })
-        .catch(error =>{
-            console.log(error);
+        }).catch(error =>{
+            console.log(error.message);
+            setError(error.message);
+            setSuccess('')
         })
 
         
@@ -91,8 +97,10 @@ const Login = () => {
                                     Are you new this site?<Link to="/register">Register</Link>
                                 </label>
                             </div>
+                            <p className='text-red-500	'>{error}</p>
+                                <p className='text-green-500	'>{success}</p>
                             <div className="form-control mt-6">
-                                <button className="btn btn-success">Login</button>
+                                <button className="btn btn-success" type='submit'>Login</button>
                             </div>
                             
                         </form>

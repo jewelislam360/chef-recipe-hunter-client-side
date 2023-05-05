@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Providers/AuthProvider'
 
 const Register = () => {
-    const {user, createUser,} = useContext(AuthContext)
+    const [error, setError]= useState('');
+    const [success, setSuccess]= useState('');
+    const {user, createUser,updateUserProfileFunc} = useContext(AuthContext)
     console.log(createUser)
     const handelRegister = (event) => {
+        setSuccess('')
         event.preventDefault();
         const form = event.target;
         const name =form.name.value;
@@ -15,18 +18,22 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, imgurl, email, password);
 
-        createUser(email, password, name, imgurl)
-        .then(result =>{
+        createUser(email, password).then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser);
             form.reset()
+            setError('');
+            setSuccess('successfully User Create')
+            updateUserProfileFunc(loggedUser, name, imgurl).then(() => {
+                // console.log('successfully user update');
+            }).catch(e => {
+                console.log(e.message)
+            })
             
-
-            
-
-        })
-        .catch(error =>{
-            console.log(error)
+        }).catch(error =>{
+            console.log(error.message)
+            setError(error.message);
+            setSuccess('')
         })
     }
 
@@ -63,15 +70,18 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                                    <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                     <label className="label">
                                         You have an account?<Link to="/login">Login</Link>
                                     </label>
                                 </div>
+                                <p className='text-red-500	'>{error}</p>
+                                <p className='text-green-500	'>{success}</p>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-success">Sign Up</button>
+                                    <button  className="btn btn-success" type="submit">Sign Up</button>
                                 </div>
                             </Form>
+                            
                             <div className='flex mx-auto  text-4xl gap-10 mb-5'>
                                 <FaGoogle></FaGoogle> <FaGithub></FaGithub>
                             </div>
