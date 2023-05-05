@@ -11,8 +11,8 @@ import app from '../../firebase/firebase.init';
 
 
 const Login = () => {
-    const auth = getAuth(app)
- const {user, signIn, googleSignin} = useContext(AuthContext)
+    // const auth = getAuth(app)
+ const {user, signIn, googleSignin,auth} = useContext(AuthContext)
  const provider = new GoogleAuthProvider();
  const githubProvider = new GithubAuthProvider();
  

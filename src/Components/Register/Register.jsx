@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { AuthContext } from '../../Providers/AuthProvider';
-import { updateProfile } from 'firebase/auth';
+import { AuthContext } from '../../Providers/AuthProvider'
 
 const Register = () => {
-    const {user, createUser, auth} = useContext(AuthContext)
+    const {user, createUser,} = useContext(AuthContext)
     console.log(createUser)
     const handelRegister = (event) => {
         event.preventDefault();
@@ -21,8 +20,9 @@ const Register = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             form.reset()
+            
 
-            updateProfile(auth, {displayName:name, photoURL:imgurl})
+            
 
         })
         .catch(error =>{

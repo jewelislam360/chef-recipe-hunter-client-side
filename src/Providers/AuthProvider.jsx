@@ -42,13 +42,13 @@ const AuthProvider = ({children}) => {
     },[])
     const AuthInfo ={
         user,
+        auth,
         loading,
         createUser,
         signIn,
         googleSignin,
-        logOut,
-        auth
-        
+        logOut
+
 
     }
     return (
