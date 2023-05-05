@@ -13,7 +13,7 @@ const WhyChoose = () => {
                 <h1 className='text-4xl font-bold pb-8 pt-8'>Why Choose Us</h1>
                 <p className='w-[50%] mx-auto'>Quality of Service, Food, Ambiance and Value of Money are the primary elements for choosing a restaurant</p>
             </div>
-            <div className='flex gap-5 w-[75%] mx-auto'>
+            <div className='md:flex gap-5 w-[75%] mx-auto'>
                 <div className='shrink w-[60%]' shrink w-64><img className='h-auto' src={section1} alt="" /></div>
 
                 <div className='shrink w-[40%]'>
@@ -34,10 +34,10 @@ const WhyChoose = () => {
                 
 
                 <div>
-                    <div className='flex w-[75%] mb-10 mt-10 mx-auto gap-2'>
+                    <div className='md:flex w-[75%] mb-10 mt-10 mx-auto gap-2'>
                     <div className="card w-96 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
-                                <img src={section2} alt="Shoes" className="rounded-full" />
+                                <img src={section2} alt="Shoes" className=" w-[50%] rounded-full" />
                             </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">Easy Reservation</h2>
@@ -47,7 +47,7 @@ const WhyChoose = () => {
                         </div>
                         <div className="card w-96 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
-                                <img src={section3} alt="Shoes" className="rounded-full" />
+                                <img src={section3} alt="Shoes" className="rounded-full  w-[50%] " />
                             </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">Easy Reservation</h2>
@@ -57,7 +57,7 @@ const WhyChoose = () => {
                         </div>
                         <div className="card w-96 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
-                                <img src={section4} alt="Shoes" className="rounded-full" />
+                                <img src={section4} alt="Shoes" className="rounded-full  w-[50%] " />
                             </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">Easy Reservation</h2>
@@ -68,7 +68,7 @@ const WhyChoose = () => {
 
                         <div className="card w-96 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
-                                <img src={section5} alt="Shoes" className="rounded-full" />
+                                <img src={section5} alt="Shoes" className="rounded-full  w-[50%] " />
                             </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">Easy Reservation</h2>

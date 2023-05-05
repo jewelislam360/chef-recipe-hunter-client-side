@@ -13,7 +13,7 @@ const OurChef = () => {
     return (
         
             <div><h1 className='text-4xl w-[75%] mb-10 mt-10 text-center mx-auto font-bold' >Chef Details</h1>
-            <div className='grid grid-cols-3 gap-5 w-[75%] mx-auto	'>
+            <div className='grid md:grid-cols-3 gap-5 w-[75%] mx-auto	'>
 
             {
                 chef.map(chef => <div
